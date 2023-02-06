@@ -18,14 +18,16 @@ const initdb = async () =>
 
 //Define method to accept content and add it to the database
 export const putDb = async (content) => {
+  console.log("Entrando a put");
+  console.log(content);
   //Create database connection, with the defined version
-  const contactDb = await openDB('jate', 1);
+  const jateDb = await openDB('jate', 1);
   //Create a new transaction, specifying the database and the permissions
-  const tx = contactDb.transaction('jate', 'readwrite');
+  const tx = jateDb.transaction('jate', 'readwrite');
   //Open the desired Object Store
   const store = tx.objectStore('jate');
   //Use the put method to add data to the database
-  const request = store.put({value: content});
+  const request = store.put({id: 1, value: content});
   //Obtain confirmation
   const result = await request;
   console.log('Data added to database', result);
@@ -35,17 +37,17 @@ export const putDb = async (content) => {
 //Define method to get the database content
 export const getDb = async () => {
   //Create database connection, with the defined version
-  const contactDb = await openDB('jate', 1);
+  const jateDb = await openDB('jate', 1);
   //Create a new transaction, specifying the database and the permissions
-  const tx = contactDb.transaction('jate', 'readonly');
+  const tx = jateDb.transaction('jate', 'readonly');
   //Open the desired Object Store
   const store = tx.objectStore('jate');
   //Use the getAll method to obtain all data from the database
-  const request = store.getAll();
+  const request = store.get(1);
   //Obtain confirmation
   const result = await request;
-  console.log('result.value', result);
-  return result;
+  console.log('result.value', result.value);
+  return result.value;
 
 };
 
