@@ -20,22 +20,27 @@ const initdb = async () =>
 export const putDb = async (content) => {
   console.log("Entrando a put");
   console.log(content);
-  //Create database connection, with the defined version
-  const jateDb = await openDB('jate', 1);
-  //Create a new transaction, specifying the database and the permissions
-  const tx = jateDb.transaction('jate', 'readwrite');
-  //Open the desired Object Store
-  const store = tx.objectStore('jate');
-  //Use the put method to add data to the database
-  const request = store.put({id: 1, value: content});
-  //Obtain confirmation
-  const result = await request;
-  console.log('Data added to database', result);
-  return result;
+  if (content !== null){
+    //Create database connection, with the defined version
+    const jateDb = await openDB('jate', 1);
+    //Create a new transaction, specifying the database and the permissions
+    const tx = jateDb.transaction('jate', 'readwrite');
+    //Open the desired Object Store
+    const store = tx.objectStore('jate');
+    //Use the put method to add data to the database
+    const request = store.put({id: 1, value: content});
+    //Obtain confirmation
+    const result = await request;
+    console.log('Data added to database', result);
+    return result;
+  } else {
+    console.log("No data added");
+  }
 };
 
 //Define method to get the database content
 export const getDb = async () => {
+  console.log("Entrando a get");
   //Create database connection, with the defined version
   const jateDb = await openDB('jate', 1);
   //Create a new transaction, specifying the database and the permissions
