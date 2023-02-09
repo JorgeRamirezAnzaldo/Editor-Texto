@@ -26,6 +26,9 @@ export default class {
     // Volver a localStorage si no hay nada almacenado en indexeddb y si ninguno está disponible, establecer el valor como el encabezado.
     getDb().then((data) => {
       console.info('Loaded data from IndexedDB, injecting into editor');
+      console.log(data);
+      console.log(localData);
+      console.log(header);
       this.editor.setValue(data || localData || header);
     });
 

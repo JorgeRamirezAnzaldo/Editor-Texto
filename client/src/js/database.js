@@ -35,6 +35,7 @@ export const putDb = async (content) => {
     return result;
   } else {
     console.log("No data added");
+    return;
   }
 };
 
@@ -51,10 +52,11 @@ export const getDb = async () => {
   const request = store.get(1);
   //Obtain confirmation
   const result = await request;
-  if (result !== null){
+  console.log(result);
+  if (result !== undefined){
   console.log('result.value', result.value);
   return result.value;
-  } else {
+  } else if (result === undefined) {
     return null;
   }
 
