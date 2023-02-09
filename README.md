@@ -14,7 +14,7 @@
     
 ## Enlace a la aplicación funcional
 
-* [Enlace a aplicación]()
+* [Enlace a aplicación](https://editor-texto-jate.herokuapp.com/)
 
 ## Instrucciones de instalación  
 
@@ -67,7 +67,7 @@
 
 ## Información de uso de la aplicación
 
-* Una vez que hayas accedido a la aplicación mediante el link de [Heroku]() o si estás haciendo pruebas locales mediante la dirección http://localhost:3000/:
+* Una vez que hayas accedido a la aplicación mediante el link de [Heroku](https://editor-texto-jate.herokuapp.com/) o si estás haciendo pruebas locales mediante la dirección http://localhost:3000/:
   * Podrás ver un texto inicial en el editor de texto como se aprecia en la siguiente imagen:  
       ![Editor inicial](./images/EditorInicial.JPG) 
   * Puedes agregar líneas con los fragmentos de código o notas que desees:  
