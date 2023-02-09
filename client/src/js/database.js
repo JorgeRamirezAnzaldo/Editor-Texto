@@ -46,8 +46,12 @@ export const getDb = async () => {
   const request = store.get(1);
   //Obtain confirmation
   const result = await request;
+  if (result !== null){
   console.log('result.value', result.value);
   return result.value;
+  } else {
+    return null;
+  }
 
 };
 
